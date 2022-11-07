@@ -1,0 +1,60 @@
+main {
+    resize: both;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 100%;
+    width: 100%;
+    height: 100%;
+
+    section {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    section#inputs {
+
+        display: flex;
+        flex-direction: column;
+        resize: both;
+
+        #letters-container {
+            display: flex;
+            flex-direction: row;
+
+            .letter {
+                display: block;
+                flex-direction: column;
+                margin: 0 8px;
+                font-size: xx-large;
+                text-align: center;
+                text-transform: uppercase;
+
+                &::after {
+
+                    content: '';
+                    display: block;
+                    height: 8px;
+                    width: 30px;
+                    text-align: center;
+                    background-color: black;
+
+                }
+            }
+        }
+
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    font-size: larger;
+    padding: 8px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    border-radius: 12px;
+}
