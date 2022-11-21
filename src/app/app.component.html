@@ -1,15 +1,43 @@
 <main>
 
-  <section id="hangman"></section>
+  <section id="hangman-container">
+
+    <!-- <img src="../assets/img/bottom.png" alt="Bottom" *ngIf="showHangman || errors == 1">
+    <img src="../assets/img/left.png" alt="Bottom" *ngIf="showHangman || errors == 2">
+    <img src="../assets/img/bottom-left.png" alt="Bottom" *ngIf="showHangman || errors == 3">
+    <img src="../assets/img/top.png" alt="Bottom" *ngIf="showHangman || errors == 4">
+    <img src="../assets/img/top-bottom.png" alt="Bottom" *ngIf="showHangman || errors == 5">
+    <img src="../assets/img/head.png" alt="Bottom" *ngIf="showHangman || errors == 6">
+    <img src="../assets/img/body.png" alt="Bottom" *ngIf="showHangman || errors == 7">
+    <img src="../assets/img/arm-left.png" alt="Bottom" *ngIf="showHangman || errors == 8">
+    <img src="../assets/img/arm-right.png" alt="Bottom" *ngIf="showHangman || errors == 9">
+    <img src="../assets/img/leg-left.png" alt="Bottom" *ngIf="showHangman || errors == 10">
+    <img src="../assets/img/leg-right.png" alt="Bottom" *ngIf="showHangman || errors == 11"> -->
+
+    <div id="hangman">
+      <div id="bottom" *ngIf="showHangman || errors >= 1"></div>
+      <div id="left" *ngIf="showHangman || errors >= 2"></div>
+      <div id="bottom-left" *ngIf="showHangman || errors >= 3"></div>
+      <div id="top" *ngIf="showHangman || errors >= 4"></div>
+      <div id="top-bottom" *ngIf="showHangman || errors >= 5"></div>
+      <div id="head" *ngIf="showHangman || errors >= 6"></div>
+      <div id="body" *ngIf="showHangman || errors >= 7"></div>
+      <div id="arm-1" class="arm" *ngIf="showHangman || errors >= 8"></div>
+      <div id="arm-2" class="arm" *ngIf="showHangman || errors >= 9"></div>
+      <div id="leg-1" class="leg" *ngIf="showHangman || errors >= 10"></div>
+      <div id="leg-2" class="leg" *ngIf="showHangman || errors >= 11"></div>
+    </div>
+
+  </section>
 
   <section id="inputs">
 
     <div>
       <label for="word">Word</label>
       <input type="text" name="word" id="word" #word>
-      
+
       <div class="row">
-        <button (click)="setNewWord(word)" [disabled]="word.value">Set new word</button>
+        <button (click)="setNewWord(word)">Set new word</button>
         <button (click)="setRandomWord()">Set random word</button>
       </div>
     </div>
@@ -21,7 +49,6 @@
     </div>
 
     <p>You made {{ errors }} {{ errors == 1 ? 'error' : 'errors' }}</p>
-    <p>Max errors posible: {{ maxErrors }}</p>
 
     <div>
       <label for="check_letter">Letter</label>
@@ -33,5 +60,5 @@
     </div>
 
   </section>
-  
+
 </main>

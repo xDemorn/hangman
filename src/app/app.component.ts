@@ -15,27 +15,32 @@ export class AppComponent {
   // VARIABLES
 
   public errors: number = 0;
-  public maxErrors: number = 0;
   public letters: Letter[] = [];
+  public showHangman = true;
 
   // FUNCTIONS
 
-  public setNewWord(word: HTMLInputElement): void {
+  public setNewWord(element: HTMLInputElement): void {
 
-    const splited: string[] = word.value.split('');
+    if(element.value === '') return;
+
+    this.showHangman = false;
+
+    const splited: string[] = element.value.split('');
 
     const letters: Letter[] = splited.map((_letter: string) => {
       return { letter: _letter.toLowerCase(), visible: false };
     });
 
     this.letters = letters;
-    this.maxErrors = letters.length;
 
-    word.value = '';
+    element.value = '';
 
   }
 
   public checkLetter(element: HTMLInputElement): void {
+
+    if(element.value === '') return;
 
     const letter = element.value.toLowerCase();
     let containsLetter: boolean = false;

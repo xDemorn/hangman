@@ -1,15 +1,112 @@
+$line-size: 12px;
+$head-size: 96px;
+
 main {
-    resize: both;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 65% 35%;
     grid-template-rows: 100%;
     width: 100%;
     height: 100%;
 
-    section {
-        display: block;
-        width: 100%;
-        height: 100%;
+    section#hangman-container {
+        position: relative;
+        background-color: aqua;
+
+        img {
+            position: absolute;
+        }
+
+        #hangman {
+            div {
+                background-color: black;
+            }
+
+            div#bottom {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: $line-size;
+            }
+
+            div#left {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: $line-size;
+            }
+
+            div#left {
+            }
+
+            div#top {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                height: $line-size;
+            }
+
+            div#top-bottom {
+                position: absolute;
+                top: $line-size;
+                right: 49.5%;
+                left: 49.5%;
+                height: $line-size * 10;
+            }
+
+            div#head {
+                position: absolute;
+                top: $line-size * 11;
+                right: 49.5%;
+                left: 49.5%;
+                height: $head-size;
+                width: $head-size;
+                border-radius: 50%;
+                transform: translateX(-43px);
+            }
+
+            div#body {
+                position: absolute;
+                top: calc($line-size * 11 + $head-size);
+                right: 49.5%;
+                left: 49.5%;
+                height: $line-size * 25;
+            }
+
+            div.arm {
+                position: absolute;
+                top: calc($line-size * 11 + $head-size + $line-size * 22.5);
+                right: 49.5%;
+                left: 49.5%;
+                height: $line-size * 15;
+            }
+
+            div#arm-1 {
+                transform: translateX(-$line-size * 5 - 2px) rotate(45deg);
+            }
+
+            div#arm-2 {
+                transform: translateX($line-size * 5 + 2px) rotate(-45deg);
+            }
+
+            div.leg {
+                position: absolute;
+                top: calc($line-size * 11 + $head-size);
+                right: 49.5%;
+                left: 49.5%;
+                height: $line-size * 15;
+            }
+
+            div#leg-1 {
+                transform: translateX(-$line-size * 7 - 2px) rotate(105deg);
+            }
+
+            div#leg-2 {
+                transform: translateX($line-size * 7 + 2px) rotate(-105deg);
+            }
+        }
     }
 
     section#inputs {
@@ -17,6 +114,7 @@ main {
         display: flex;
         flex-direction: column;
         resize: both;
+        align-items: center;
 
         #letters-container {
             display: flex;
